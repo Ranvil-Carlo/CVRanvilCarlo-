@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranvil Carlo | Professional Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .gradient-text {
+            background: linear-gradient(90deg, #2563eb, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .skill-tag {
+            transition: all 0.3s ease;
+        }
+        .skill-tag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 leading-relaxed">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-card top-0 left-0">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <span class="text-xl font-bold gradient-text">RC.</span>
+            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
+                <a href="#about" class="hover:text-blue-600 transition">About</a>
+                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
+                <a href="#education" class="hover:text-blue-600 transition">Education</a>
+                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+            <div class="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
+                RC
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">RANVIL CARLO</h1>
+            <p class="text-xl text-slate-600 font-medium mb-6">Engineering Graduate</p>
+            <div class="flex justify-center space-x-4 mb-8">
+                <a href="mailto:ranvilcarlo2@gmail.com" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition flex items-center gap-2">
+                    <i class="fa-solid fa-envelope"></i> Hire Me
+                </a>
+                <button onclick="window.print()" class="border border-slate-300 px-6 py-2 rounded-full hover:bg-slate-100 transition flex items-center gap-2">
+                    <i class="fa-solid fa-download"></i> Save CV
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-20">
+        
+        <!-- Objective Section -->
+        <section id="about" class="grid md:grid-cols-3 gap-8 items-start">
+            <div class="md:col-span-1">
+                <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4">Career Objective</h2>
+            </div>
+            <div class="md:col-span-2 text-slate-700 text-lg">
+                <p>Enthusiastic engineering graduate seeking an opportunity to work in a dynamic organization where I can learn, grow, and apply my academic knowledge to solve practical engineering problems.</p>
+            </div>
+        </section>
+        <!-- Skills Section -->
+        <section id="skills" class="space-y-12">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Hard Skills -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-code text-blue-600"></i> Technical Expertise
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">C Programming</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Python</span>
+                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Engineering Principles</span>
+                    </div>
+                </div>
+                <!-- Soft Skills -->
+                <div>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="fa-solid fa-user-check text-purple-600"></i> Core Competencies
+                    </h3>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Problem-Solving</span>
+                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Adaptability</span>
+                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Communication</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Education Section -->
+        <section id="education" class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-1 text-2xl font-bold border-l-4 border-blue-600 pl-4">Education</div>
+            <div class="md:col-span-2 space-y-6">
+                <div class="glass-card p-6 rounded-2xl shadow-sm">
+                    <div class="flex justify-between items-start mb-2">
+                        <h4 class="text-lg font-bold">B.Tech (1st Year)</h4>
+                        <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Present</span>
+                    </div>
+                    <p class="text-blue-600 font-medium">St Aloysius (Deemed to be University)</p>
+                    <p class="text-slate-500 text-sm mt-1 flex items-center gap-1">
+                        <i class="fa-solid fa-location-dot"></i> Kodialbail, Mangalore
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- Certifications & Activities -->
+        <section class="grid md:grid-cols-2 gap-12">
+            <div>
+                <h3 class="text-xl font-bold mb-6">Certifications</h3>
+                <ul class="space-y-4">
+                    <li class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                        <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center">
+                            <i class="fa-brands fa-microsoft text-blue-500"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold">Microsoft Learn</p>
+                        </div>
+                    </li>
+                    <li class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
+                        <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center">
+                            <i class="fa-solid fa-microchip text-blue-600"></i>
+                        </div>
+                        <div>
+                            <p class="font-semibold">IBM Certified Professional</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="text-xl font-bold mb-6">Extracurriculars</h3>
+                <div class="space-y-4">
+                    <div class="p-4 border-l-2 border-slate-200">
+                        <h4 class="font-bold text-slate-800">Leadership & Involvement</h4>
+                        <p class="text-slate-600 text-sm">Active participant in student organizations and peer mentoring.</p>
+                    </div>
+                    <div class="p-4 border-l-2 border-slate-200">
+                        <h4 class="font-bold text-slate-800">Volunteer Experience</h4>
+                        <p class="text-slate-600 text-sm">Dedicated time to community service and campus initiatives.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Contact Section -->
+        <section id="contact" class="bg-blue-600 rounded-3xl p-8 md:p-12 text-white text-center">
+            <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
+            <p class="mb-8 opacity-90">I am currently looking for new opportunities and my inbox is always open.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-6">
+                <a href="mailto:ranvilcarlo2@gmail.com" class="flex items-center justify-center gap-3 text-lg font-medium hover:underline">
+                    <i class="fa-solid fa-envelope text-2xl"></i> ranvilcarlo2@gmail.com
+                </a>
+                <a href="tel:7483391780" class="flex items-center justify-center gap-3 text-lg font-medium hover:underline">
+                    <i class="fa-solid fa-phone text-2xl"></i> +91 7483391780
+                </a>
+            </div>
+        </section>
+    </main>
+    <footer class="py-12 border-t border-slate-200 text-center text-slate-500 text-sm">
+        <p>&copy; 2026 Ranvil Carlo. All rights reserved.</p>
+    </footer>
+</body>
+</html>
