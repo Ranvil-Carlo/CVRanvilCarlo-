@@ -1,175 +1,417 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ranvil Carlo | Professional Profile</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-        
-        body {
-            font-family: 'Inter', sans-serif;
-            scroll-behavior: smooth;
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #2563eb, #7c3aed);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .skill-tag {
-            transition: all 0.3s ease;
-        }
-        .skill-tag:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranvil Carlo - Engineering Graduate</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="none"/><circle cx="50" cy="50" r="40" fill="white" opacity="0.05"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        .title {
+            font-size: 1.4em;
+            opacity: 0.95;
+            margin-bottom: 30px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 30px;
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: white;
+            color: #667eea;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: white;
+            color: #667eea;
+        }
+
+        .btn-primary:hover {
+            background: transparent;
+            color: white;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .objective {
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.8;
+            padding: 20px;
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            border-radius: 8px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .skill-card h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+        }
+
+        .education-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+        }
+
+        .education-card h3 {
+            color: #667eea;
+            font-size: 1.3em;
+            margin-bottom: 5px;
+        }
+
+        .education-status {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-left: 10px;
+        }
+
+        .education-card p {
+            color: #666;
+            margin-top: 8px;
+        }
+
+        .cert-list {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .cert-list li {
+            background: #f8f9ff;
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .cert-list li:hover {
+            transform: translateX(5px);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .cert-list li::before {
+            content: "✓";
+            color: #667eea;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .activities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .activity-card {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 4px solid #667eea;
+        }
+
+        .activity-card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            border-radius: 12px;
+            margin-top: 30px;
+        }
+
+        .contact-section h2 {
+            margin-bottom: 15px;
+            font-size: 2em;
+        }
+
+        .contact-section p {
+            margin-bottom: 25px;
+            opacity: 0.95;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-size: 0.9em;
+            border-top: 1px solid #eee;
+        }
+
+        @media (max-width: 768px) {
+            .name {
+                font-size: 2em;
+            }
+            
+            .header {
+                padding: 40px 20px;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900 leading-relaxed">
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass-card top-0 left-0">
-        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
-            <span class="text-xl font-bold gradient-text">RC.</span>
-            <div class="hidden md:flex space-x-8 text-sm font-medium text-slate-600">
-                <a href="#about" class="hover:text-blue-600 transition">About</a>
-                <a href="#skills" class="hover:text-blue-600 transition">Skills</a>
-                <a href="#education" class="hover:text-blue-600 transition">Education</a>
-                <a href="#contact" class="hover:text-blue-600 transition">Contact</a>
-            </div>
-        </div>
-    </nav>
-    <!-- Hero Section -->
-    <header class="pt-32 pb-16 px-6">
-        <div class="max-w-5xl mx-auto text-center">
-            <div class="w-24 h-24 bg-blue-600 rounded-full mx-auto mb-6 flex items-center justify-center text-white text-3xl font-bold shadow-lg">
-                RC
-            </div>
-            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">RANVIL CARLO</h1>
-            <p class="text-xl text-slate-600 font-medium mb-6">Engineering Graduate</p>
-            <div class="flex justify-center space-x-4 mb-8">
-                <a href="mailto:ranvilcarlo2@gmail.com" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition flex items-center gap-2">
-                    <i class="fa-solid fa-envelope"></i> Hire Me
-                </a>
-                <button onclick="window.print()" class="border border-slate-300 px-6 py-2 rounded-full hover:bg-slate-100 transition flex items-center gap-2">
-                    <i class="fa-solid fa-download"></i> Save CV
-                </button>
-            </div>
-        </div>
-    </header>
-    <main class="max-w-5xl mx-auto px-6 pb-24 space-y-20">
-        
-        <!-- Objective Section -->
-        <section id="about" class="grid md:grid-cols-3 gap-8 items-start">
-            <div class="md:col-span-1">
-                <h2 class="text-2xl font-bold border-l-4 border-blue-600 pl-4">Career Objective</h2>
-            </div>
-            <div class="md:col-span-2 text-slate-700 text-lg">
-                <p>Enthusiastic engineering graduate seeking an opportunity to work in a dynamic organization where I can learn, grow, and apply my academic knowledge to solve practical engineering problems.</p>
-            </div>
-        </section>
-        <!-- Skills Section -->
-        <section id="skills" class="space-y-12">
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Hard Skills -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-code text-blue-600"></i> Technical Expertise
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">C Programming</span>
-                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Python</span>
-                        <span class="skill-tag px-4 py-2 bg-blue-50 text-blue-700 rounded-lg border border-blue-100 font-medium">Engineering Principles</span>
-                    </div>
-                </div>
-                <!-- Soft Skills -->
-                <div>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="fa-solid fa-user-check text-purple-600"></i> Core Competencies
-                    </h3>
-                    <div class="flex flex-wrap gap-3">
-                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Problem-Solving</span>
-                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Adaptability</span>
-                        <span class="skill-tag px-4 py-2 bg-purple-50 text-purple-700 rounded-lg border border-purple-100 font-medium">Communication</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Education Section -->
-        <section id="education" class="grid md:grid-cols-3 gap-8">
-            <div class="md:col-span-1 text-2xl font-bold border-l-4 border-blue-600 pl-4">Education</div>
-            <div class="md:col-span-2 space-y-6">
-                <div class="glass-card p-6 rounded-2xl shadow-sm">
-                    <div class="flex justify-between items-start mb-2">
-                        <h4 class="text-lg font-bold">B.Tech (1st Year)</h4>
-                        <span class="text-sm bg-blue-100 text-blue-800 px-3 py-1 rounded-full font-semibold">Present</span>
-                    </div>
-                    <p class="text-blue-600 font-medium">St Aloysius (Deemed to be University)</p>
-                    <p class="text-slate-500 text-sm mt-1 flex items-center gap-1">
-                        <i class="fa-solid fa-location-dot"></i> Kodialbail, Mangalore
-                    </p>
-                </div>
-            </div>
-        </section>
-        <!-- Certifications & Activities -->
-        <section class="grid md:grid-cols-2 gap-12">
-            <div>
-                <h3 class="text-xl font-bold mb-6">Certifications</h3>
-                <ul class="space-y-4">
-                    <li class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center">
-                            <i class="fa-brands fa-microsoft text-blue-500"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold">Microsoft Learn</p>
-                        </div>
-                    </li>
-                    <li class="flex items-center gap-4 p-4 bg-white rounded-xl shadow-sm border border-slate-100">
-                        <div class="w-10 h-10 bg-slate-100 rounded flex items-center justify-center">
-                            <i class="fa-solid fa-microchip text-blue-600"></i>
-                        </div>
-                        <div>
-                            <p class="font-semibold">IBM Certified Professional</p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-            <div>
-                <h3 class="text-xl font-bold mb-6">Extracurriculars</h3>
-                <div class="space-y-4">
-                    <div class="p-4 border-l-2 border-slate-200">
-                        <h4 class="font-bold text-slate-800">Leadership & Involvement</h4>
-                        <p class="text-slate-600 text-sm">Active participant in student organizations and peer mentoring.</p>
-                    </div>
-                    <div class="p-4 border-l-2 border-slate-200">
-                        <h4 class="font-bold text-slate-800">Volunteer Experience</h4>
-                        <p class="text-slate-600 text-sm">Dedicated time to community service and campus initiatives.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Contact Section -->
-        <section id="contact" class="bg-blue-600 rounded-3xl p-8 md:p-12 text-white text-center">
-            <h2 class="text-3xl font-bold mb-4">Let's Connect</h2>
-            <p class="mb-8 opacity-90">I am currently looking for new opportunities and my inbox is always open.</p>
-            <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="mailto:ranvilcarlo2@gmail.com" class="flex items-center justify-center gap-3 text-lg font-medium hover:underline">
-                    <i class="fa-solid fa-envelope text-2xl"></i> ranvilcarlo2@gmail.com
-                </a>
-                <a href="tel:7483391780" class="flex items-center justify-center gap-3 text-lg font-medium hover:underline">
-                    <i class="fa-solid fa-phone text-2xl"></i> +91 7483391780
-                </a>
-            </div>
-        </section>
-    </main>
-    <footer class="py-12 border-t border-slate-200 text-center text-slate-500 text-sm">
-        <p>&copy; 2026 Ranvil Carlo. All rights reserved.</p>
-    </footer>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1 class="name">RANVIL CARLO</h1>
+                <p class="title">Engineering Graduate | Problem Solver | Lifelong Learner</p>
+                <div class="cta-buttons">
+                    <a href="mailto:ranvilcarlo2@gmail.com" class="btn btn-primary">Hire Me</a>
+                    <a href="#" class="btn" onclick="alert('CV download feature coming soon!')">Download CV</a>
+                </div>
+            </div>
+        </header>
+
+        <div class="content">
+            <section class="section">
+                <h2 class="section-title">🎯 Career Objective</h2>
+                <p class="objective">
+                    Motivated and enthusiastic engineering graduate eager to contribute to a forward-thinking organization. Committed to continuous learning and applying academic knowledge to tackle real-world engineering challenges. Seeking opportunities to collaborate with talented professionals while developing practical skills and driving innovative solutions.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">💻 Technical Expertise</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>C Programming</h3>
+                        <p>Systems Development</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Python</h3>
+                        <p>Scripting & Automation</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Engineering Principles</h3>
+                        <p>Core Fundamentals</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">⚡ Core Competencies</h2>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Problem-Solving</h3>
+                        <p>Analytical Thinking</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Adaptability</h3>
+                        <p>Quick Learner</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Communication</h3>
+                        <p>Team Collaboration</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🎓 Education</h2>
+                <div class="education-card">
+                    <h3>Bachelor of Technology (B.Tech)
+                        <span class="education-status">1st Year - In Progress</span>
+                    </h3>
+                    <p><strong>St Aloysius Institute of Technology (Deemed to be University)</strong></p>
+                    <p>Kodialbail, Mangalore</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">📜 Certifications</h2>
+                <ul class="cert-list">
+                    <li><strong>Microsoft Learn</strong> - Cloud and Technology Fundamentals</li>
+                    <li><strong>IBM Certified Professional</strong> - Industry-Recognized Credentials</li>
+                </ul>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">🌟 Beyond the Classroom</h2>
+                <div class="activities-grid">
+                    <div class="activity-card">
+                        <h3>Leadership & Involvement</h3>
+                        <p>Active participant in student organizations, contributing to team initiatives and peer mentoring programs to foster collaborative learning environments.</p>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Community Engagement</h3>
+                        <p>Dedicated volunteer contributing time to community service projects and campus initiatives, developing interpersonal skills and social responsibility.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-section">
+                <h2>Let's Connect</h2>
+                <p>I'm actively seeking new opportunities and would love to hear from you. Whether it's a job opportunity, collaboration, or just a friendly chat about technology!</p>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <span>📧</span>
+                        <a href="mailto:ranvilcarlo2@gmail.com" style="color: white; text-decoration: none;">ranvilcarlo2@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span>📱</span>
+                        <a href="tel:+917483391780" style="color: white; text-decoration: none;">+91 7483391780</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="footer">
+            <p>© 2026 Ranvil Carlo. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 </html>
